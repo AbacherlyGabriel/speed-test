@@ -55,7 +55,7 @@ def plot_results(sheet_appended):
     sns.lineplot(data=sheet_appended, x=sheet_appended.index, y="Download (ms)")
 
     plt.show()
-    plt.savefig(fname='results.png')
+    #plt.savefig(fname='results.png')
 
 
 """
