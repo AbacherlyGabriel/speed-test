@@ -5,8 +5,8 @@ import schedule
 import time
 
 import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
+#import seaborn as sns
+#import matplotlib.pyplot as plt
 
 from datetime import datetime
 from threading import Timer
@@ -47,15 +47,15 @@ def create_workbook():
 """
 """
 
-def plot_results(sheet_appended):
-    plt.title('Speed Test')
-    plt.xlabel('Test Number')
+# def plot_results(sheet_appended):
+#     plt.title('Speed Test')
+#     plt.xlabel('Test Number')
 
-    plt.grid()
-    sns.lineplot(data=sheet_appended, x=sheet_appended.index, y="Download (ms)")
+#     plt.grid()
+#     sns.lineplot(data=sheet_appended, x=sheet_appended.index, y="Download (ms)")
 
-    plt.show()
-    #plt.savefig(fname='results.png')
+#     plt.show()
+#     plt.savefig(fname='results.png')
 
 
 """
@@ -67,7 +67,7 @@ def speed_test():
     date = datetime.now().strftime('%d/%m/%Y')
     time = datetime.now().strftime('%H:%M:%S')
 
-    print('Testing Speed...')
+    print('\nTesting Speed...')
 
     speed = speedtest.Speedtest()
 
@@ -96,7 +96,7 @@ def speed_test():
 
     print('\nSpeed Test Finalised and Worksheet Succesfully Updated!')
 
-    plot_results(sheet_appended)
+    #plot_results(sheet_appended)
 
 
 """
@@ -107,7 +107,7 @@ if __name__ == '__main__':
     if workbook_not_exists():
         create_workbook()
     
-    schedule.every(1800).seconds.do(speed_test)
+    schedule.every(30).seconds.do(speed_test)
     
     while True:
         schedule.run_pending()
